@@ -67,24 +67,28 @@ function rowPopulate(data) {
         cell4 = document.createElement("td");
         cell5 = document.createElement("td");
         cell6 = document.createElement("td");
+        cell7 = document.createElement("td");
         textnode1=document.createTextNode(customer.id);
-        textnode2=document.createTextNode(customer.first_name);
-        textnode3=document.createTextNode(customer.last_name);
-        textnode4=document.createTextNode(customer.ip);
-        textnode5=document.createTextNode(customer.latitude);
-        textnode6=document.createTextNode(customer.longitude);
+        textnode2=document.createTextNode(customer.email);
+        textnode3=document.createTextNode(customer.first_name);
+        textnode4=document.createTextNode(customer.last_name);
+        textnode5=document.createTextNode(customer.ip);
+        textnode6=document.createTextNode(customer.latitude);
+        textnode7=document.createTextNode(customer.longitude);
         cell1.appendChild(textnode1);
         cell2.appendChild(textnode2);
         cell3.appendChild(textnode3);
         cell4.appendChild(textnode4);
         cell5.appendChild(textnode5);
         cell6.appendChild(textnode6);
+        cell7.appendChild(textnode7);
         row.appendChild(cell1);
         row.appendChild(cell2);
         row.appendChild(cell3);
         row.appendChild(cell4);
         row.appendChild(cell5);
         row.appendChild(cell6);
+        row.appendChild(cell7);
         tabBody.appendChild(row);
         })
 }
