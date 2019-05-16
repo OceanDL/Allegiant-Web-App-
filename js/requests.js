@@ -1,5 +1,3 @@
-var amount;
-
 //Gets all customer records and puts them in table
 function getCustomers(){
     var request = new XMLHttpRequest();
@@ -16,8 +14,24 @@ function getCustomers(){
     request.send();
 }
 
+//Function to get customer amount for dashboard
 function getCustomerAmount(){
-  return amount;
+  var request = new XMLHttpRequest();
+  var amount = 0;
+    request.open('GET', 'http://localhost/code-challenge/ws/customers/', false)
+    request.onload = function() {
+      var data = JSON.parse(this.response);
+      if (request.status >= 200 && request.status < 400) {
+        data.forEach(customer => {
+          amount++;
+        })
+      } else {
+        console.log('Customer not Found');
+      }
+    }
+    
+    request.send();
+    return amount;
 }
 
 //gets single customer record 
@@ -45,7 +59,6 @@ function getCustomer(id){
 //Helper function to populate table rows (Change to object arrays  + loops)
 function rowPopulate(data) {
     data.forEach(customer => {
-        amount = amount + 1;
         tabBody=document.getElementsByTagName("tbody").item(0);   
         row=document.createElement("tr");
         cell1 = document.createElement("td");
